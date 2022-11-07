@@ -1,10 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
+import ReactDOM from 'react-dom/client';
+import { ToastContainer } from 'react-toastify';
+
+import App from './App';
+
+import StoreProvider from 'context/storeContext';
+
+import 'react-toastify/dist/ReactToastify.css';
+import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+  <StoreProvider>
     <App />
-  </React.StrictMode>
-)
+    <ToastContainer position="top-right" autoClose={5000} />
+  </StoreProvider>
+);
