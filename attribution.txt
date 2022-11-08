@@ -1,0 +1,4 @@
+1. ReactJS -> Front End Library
+2. ViteJS -> For React tooling
+3. dayjs -> Manipulate dates
+4. Tailwind + daisyui -> UI Library
