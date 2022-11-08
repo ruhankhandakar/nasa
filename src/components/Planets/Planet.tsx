@@ -19,7 +19,7 @@ const Planet: FC<Props> = ({ planet }) => {
   return (
     <>
       <div
-        className="card w-96 bg-base-100 shadow-xl min-w-[250px] cursor-pointer hover:shadow-md"
+        className="card w-96 bg-base-100 shadow-xl min-w-[250px] max-w-[250px] cursor-pointer hover:shadow-md"
         onClick={togglePreview}
       >
         <figure>

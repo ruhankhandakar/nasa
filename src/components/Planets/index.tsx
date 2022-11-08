@@ -1,4 +1,4 @@
-import { FC, Children } from 'react';
+import React, { FC, Children } from 'react';
 
 import Planet from './Planet';
 
@@ -16,4 +16,4 @@ const Planets: FC<Props> = ({ planetData }) => {
   );
 };
 
-export default Planets;
+export default React.memo(Planets);

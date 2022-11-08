@@ -15,4 +15,11 @@ export type PlanetDataStateType = PlanetDataType[] | [];
 export interface ITStoreContext {
   loading: boolean;
   planetData: PlanetDataStateType;
+  fetchMore: () => void;
+  isFetchingStarted: boolean;
+}
+
+export interface DatesFilters {
+  startDate: string;
+  endDate: string;
 }

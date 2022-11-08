@@ -1,4 +1,4 @@
-import type { PlanetDataType } from 'types';
+import type { PlanetDataType, DatesFilters } from 'types';
 
 interface ReturnType {
   success: boolean;
@@ -15,12 +15,14 @@ interface FailureReturnType extends ReturnType {
 
 type FetchDataReturnType = SuccessReturnType | FailureReturnType;
 
-export const fetchData = async (): Promise<FetchDataReturnType> => {
+export const fetchData = async (
+  dates: DatesFilters
+): Promise<FetchDataReturnType> => {
   try {
     const response = await fetch(
       `https://api.nasa.gov/planetary/apod?api_key=${
         import.meta.env.VITE_APP_API_KEY
-      }&start_date=2022-10-01&end_date=2022-10-29&thumbs=true`
+      }&start_date=${dates.startDate}&end_date=${dates.endDate}&thumbs=true`
     );
     const data = await response.json();
     return {

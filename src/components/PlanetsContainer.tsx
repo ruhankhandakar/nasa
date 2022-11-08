@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 import Planets from '@components/Planets';
 import SpotLight from '@components/SpotLight';
+import AllPlanets from '@components/AllPlanets';
 
 import type { PlanetDataType } from 'types';
 
@@ -24,9 +25,7 @@ const PlanetsContainer: FC<Props> = ({ planetData }) => {
         <Planets planetData={prev7Planets} />
       </div>
       <div className="divider pb-8" />
-      <div className="pb-12 flex justify-between flex-wrap gap-y-8">
-        <Planets planetData={allOtherPlanets} />
-      </div>
+      <AllPlanets planets={allOtherPlanets} />
     </div>
   );
 };
