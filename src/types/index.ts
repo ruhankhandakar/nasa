@@ -7,6 +7,7 @@ export interface PlanetDataType {
   service_version: string;
   title: string;
   url: string;
+  thumbnail_url?: string;
 }
 
 export type PlanetDataStateType = PlanetDataType[] | [];

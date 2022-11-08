@@ -13,7 +13,7 @@ const Modal: FC<Props> = ({ toggleModal, children }) => {
         onClick={toggleModal}
       ></div>
       <div className="flex items-center min-h-screen px-4 py-8">
-        <div className="relative w-full max-w-lg p-4 mx-auto bg-white rounded-md shadow-lg">
+        <div className="relative w-full max-w-lg p-4 mx-auto bg-black rounded-md shadow-lg">
           <div className="mt-3 sm:flex">{children}</div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, Children } from 'react';
 
 import Planet from './Planet';
 
@@ -9,11 +9,10 @@ interface Props {
 }
 
 const Planets: FC<Props> = ({ planetData }) => {
-  console.log('planetData', planetData);
   return (
-    <div>
-      <Planet />
-    </div>
+    <>
+      {Children.toArray(planetData.map((planet) => <Planet planet={planet} />))}
+    </>
   );
 };
 
