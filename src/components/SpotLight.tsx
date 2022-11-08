@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useCallback } from 'react';
 
 import Modal from '@components/Common/Modal';
 import LazyImage from '@components/Common/LazyImage';
@@ -16,6 +16,26 @@ const SpotLight: FC<Props> = ({ planet, isFromModal = false }) => {
   const handleThumbnailClick = (): void => {
     setIsShowPreview((prevState) => !prevState);
   };
+
+  const renderPlanetImgOrVideo = useCallback(() => {
+    return (
+      <>
+        {planet.media_type === 'image' ? (
+          <figure className="md:max-w-lg" onClick={handleThumbnailClick}>
+            <img
+              className="max-w-full h-auto rounded-lg"
+              src={planet.url}
+              alt={planet.title}
+            />
+          </figure>
+        ) : (
+          <iframe className="w-full aspect-video" src={planet.url}></iframe>
+        )}
+      </>
+    );
+  }, []);
+
+  console.log('planet', planet.media_type, planet);
   return (
     <>
       <div
@@ -41,30 +61,28 @@ const SpotLight: FC<Props> = ({ planet, isFromModal = false }) => {
           </div>
         </div>
         <div className="flex-1 max-w-full flex justify-end">
-          <figure
-            className={`md:max-w-lg cursor-pointer ${
-              isFromModal ? 'w-1/2 m-auto' : ''
-            }`}
-            onClick={handleThumbnailClick}
-          >
-            <LazyImage
-              image={{
-                src: planet.url,
-                alt: planet.title,
-              }}
-            />
-          </figure>
+          {isFromModal ? (
+            renderPlanetImgOrVideo()
+          ) : (
+            <figure
+              className={`md:max-w-lg cursor-pointer ${
+                isFromModal ? 'w-1/2 m-auto' : ''
+              }`}
+              onClick={handleThumbnailClick}
+            >
+              <LazyImage
+                image={{
+                  src: planet.url,
+                  alt: planet.title,
+                }}
+              />
+            </figure>
+          )}
         </div>
       </div>
       {isShowPreview ? (
         <Modal toggleModal={handleThumbnailClick}>
-          <figure className="md:max-w-lg" onClick={handleThumbnailClick}>
-            <img
-              className="max-w-full h-auto rounded-lg"
-              src={planet.url}
-              alt={planet.title}
-            />
-          </figure>
+          {renderPlanetImgOrVideo()}
         </Modal>
       ) : null}
     </>
