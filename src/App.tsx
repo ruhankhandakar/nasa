@@ -9,8 +9,8 @@ const App = () => {
 
   return (
     <>
-      <NavBar />
       <main className="container mx-auto my-5 px-2">
+        <NavBar />
         {loading ? <CardSkeleton /> : null}
         {!loading && planetData.length ? (
           <PlanetsContainer planetData={planetData} />

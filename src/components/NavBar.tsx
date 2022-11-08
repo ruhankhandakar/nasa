@@ -1,6 +1,6 @@
 const NavBar = () => {
   return (
-    <div className="navbar bg-base-100 d-flex justify-between items-center flex-col md:flex-row">
+    <div className="navbar bg-base-100 d-flex justify-between items-center flex-col mb-12 md:flex-row">
       <div className="d-flex flex-col">
         <div className="avatar">
           <div className="w-24 rounded-full">
