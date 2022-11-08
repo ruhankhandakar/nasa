@@ -54,7 +54,7 @@ const AllPlanets: React.FC<Props> = ({ planets }) => {
 
   return (
     <>
-      <div className="pb-12 flex justify-between flex-wrap gap-8">
+      <div className="pb-12 flex justify-center md:justify-between flex-wrap gap-8">
         {Children.toArray(
           planets.map((planet, index, arr) => (
             <div
